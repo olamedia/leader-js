@@ -10,9 +10,9 @@ Leader tab selection without delays using localStorage
 
 ## Dependencies
 
-olamedia/zero-js
-window.localStorage
-window.JSON
+* https://github.com/olamedia/zero-js
+* window.localStorage
+* window.JSON
 
 ## License
 MIT
