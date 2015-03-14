@@ -3,6 +3,12 @@
 Leader tab selection without delays using localStorage
 
 ```js
+    if (zero.leader.isLeader()){
+        // we're on last active tab, do alerts / play notify sound / messaging / calls etc here only
+    }
+```
+
+```js
     zero.leader.onChange(function(leader){
         console.log('New leader', leader);
     });
