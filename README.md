@@ -3,22 +3,22 @@
 Leader tab selection without delays using localStorage
 
 ```js
-if (zero.leader && zero.leader.isLeader()){
+if (olamedia.leader && olamedia.leader.isLeader()){
     // we're on last active tab, do alerts /
     // messaging / calls / play notify sound etc here only
 }
 ```
 
 ```js
-if (zero.leader){
-    zero.leader.onChange(function(leader){
+if (olamedia.leader){
+    olamedia.leader.onChange(function(leader){
         console.log('New leader', leader);
     });
 }
 ```
 Check support
 ```js
-if (zero.leader){
+if (olamedia.leader){
 }
 ```
 
