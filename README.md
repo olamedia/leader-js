@@ -4,7 +4,8 @@ Leader tab selection without delays using localStorage
 
 ```js
     if (zero.leader.isLeader()){
-        // we're on last active tab, do alerts / play notify sound / messaging / calls etc here only
+        // we're on last active tab, do alerts /
+        // messaging / calls / play notify sound etc here only
     }
 ```
 
