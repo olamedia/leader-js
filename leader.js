@@ -1,15 +1,13 @@
 ;(function(window, undefined){
     var zero = window.zero;
-    var storage = zero.localStorage;
-    var JSON = zero.JSON;
-    if (undefined === zero) {
+    if (!zero){
         throw new Error("zero support not found");
     }
-    if (null === storage) {
-        throw new Error("localStorage support not found");
-    }
-    if (null === JSON) {
-        throw new Error("JSON support not found");
+    zero.leader = null;
+    var storage = zero.localStorage;
+    var JSON = zero.JSON;
+    if (!storage || !JSON){
+        return;
     }
     var hiddenProperty = 'hidden' in document ? 'hidden' :
                          'webkitHidden' in document ? 'webkitHidden' :
@@ -19,7 +17,6 @@
                                   'webkitVisibilityState' in document ? 'webkitVisibilityState' :
                                   'mozVisibilityState' in document ? 'mozVisibilityState' :
                                   null;
-    //var SID = zero.cookie.get('PHPSESSID');
     var storagePrefix = 'zero/vote/';
     var elect = function(peers){
         var self = this;
@@ -154,7 +151,5 @@
             }
         },
     });
-    
     zero.leader = new Vote();
-
 })(window);
