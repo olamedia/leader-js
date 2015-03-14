@@ -1,7 +1,7 @@
 ;(function(ns, window, undefined){
-    var zero = ns.zero;
+    var zero = ns.olamedia;
     if (!zero){
-        throw new Error("zero support not found");
+        throw new Error("olamedia-js support not found. see https://github.com/olamedia/olamedia-js");
     }
     zero.leader = null;
     var storage = zero.localStorage;
@@ -17,7 +17,7 @@
                                   'webkitVisibilityState' in document ? 'webkitVisibilityState' :
                                   'mozVisibilityState' in document ? 'mozVisibilityState' :
                                   null;
-    var storagePrefix = 'zero/vote/';
+    var storagePrefix = 'olamedia/vote/';
     var elect = function(peers){
         var self = this;
         var m = 99999;
