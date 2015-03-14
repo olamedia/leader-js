@@ -1,5 +1,5 @@
-;(function(window, undefined){
-    var zero = window.zero;
+;(function(ns, window, undefined){
+    var zero = ns.zero;
     if (!zero){
         throw new Error("zero support not found");
     }
@@ -60,10 +60,16 @@
         callbacks: [],
         isLeader: function(){
             var self = this;
-            return self.id == self.leader;
+            return self.id === self.leader;
         },
         setTime: function(t){
             var self = this;
+            if (self.activeTime){
+                if (self.isLeader() && (t < self.activeTime + 10)){
+                    // too fast, we're a leader already
+                    return;
+                }
+            }
             self.activeTime = t;
             // update peer list
             var peers = self.getPeers();
@@ -147,8 +153,11 @@
             var self = this;
             if (callback){
                 self.callbacks.push(callback);
+                if (self.leader){
+                    callback(self.leader);
+                }
             }
         },
     });
     zero.leader = new Vote();
-})(window);
+})(this, window);
