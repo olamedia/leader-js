@@ -101,7 +101,6 @@
             if (force){
                 storage[storagePrefix + 'leader'] = leader;
             }
-            document.title = leader;
         },
         getPeers: function(){
             var self = this;
