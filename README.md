@@ -1,6 +1,6 @@
 # leader-js
 
-Leader tab selection using localStorage without delays
+Leader tab selection without delays using localStorage
 
 ```js
     zero.leader.onChange(function(leader){
