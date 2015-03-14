@@ -24,7 +24,7 @@ if (zero.leader){
 
 ## Depends on
 
-* https://github.com/olamedia/zero-js
+* https://github.com/olamedia/olamedia-js (Namespace object)
 * window.localStorage http://caniuse.com/#feat=namevalue-storage 93.96% global (IE 8+)
 * window.JSON http://caniuse.com/#feat=json 96.79% global (IE 8+)
 
