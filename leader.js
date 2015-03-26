@@ -58,6 +58,7 @@
         leader: null,
         activeTime: null,
         callbacks: [],
+        leadCallbacks: [],
         isLeader: function(){
             var self = this;
             return self.id === self.leader;
@@ -101,6 +102,13 @@
                 if (self.callbacks.length){
                     for (var k in self.callbacks){
                         self.callbacks[k](leader);
+                    }
+                }
+                if (self.isLeader()){
+                    if (self.leadCallbacks.length){
+                        for (var k in self.leadCallbacks){
+                            self.leadCallbacks[k]();
+                        }
                     }
                 }
             }
@@ -147,6 +155,15 @@
                 zero.don(visibilityChangeEvent, function(){
                     self.up();
                 });
+            }
+        },
+        onLead: function(callback){
+            var self = this;
+            if (callback){
+                self.leadCallbacks.push(callback);
+                if (self.isLeader()){
+                    callback(self.leader);
+                }
             }
         },
         onChange: function(callback){
